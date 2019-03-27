@@ -14,6 +14,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => \yii\web\JsonParser::class,
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -21,7 +24,6 @@ return [
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
         ],
         'log' => [
@@ -36,14 +38,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'deploy.action' => 'deploy/site/index'
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
