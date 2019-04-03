@@ -7,15 +7,19 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'app-mp',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'mp\controllers',
     'components' => [
         'request' => [
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => \yii\web\JsonParser::class,
             ]
+        ],
+        'response' => [
+            'format' => \yii\web\Response::FORMAT_JSON
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -47,9 +51,6 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                'deploy.action' => 'deploy/site/index'
-            ],
         ],
     ],
     'params' => $params,
