@@ -34,7 +34,7 @@ return [
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
-                    'category' => ['debug'],
+                    'categories' => ['debug'],
                     'levels' => ['error', 'warning', 'info'],
                     'file' => '@runtime/logs/debug.log'
                 ],
