@@ -36,7 +36,8 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'categories' => ['debug'],
                     'levels' => ['error', 'warning', 'info'],
-                    'file' => '@runtime/logs/debug.log'
+                    'logVars' => ['_SERVER', '_POST', '_GET'],
+                    'logFile' => '@runtime/logs/debug.log'
                 ],
             ],
         ],
