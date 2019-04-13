@@ -54,4 +54,7 @@ return [
         ],
     ],
     'params' => $params,
+    'aliases' => [
+        '@cdnResource' => '/',
+    ]
 ];

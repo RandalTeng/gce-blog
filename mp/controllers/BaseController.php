@@ -8,12 +8,46 @@
 
 namespace mp\controllers;
 
-
+use Yii;
 use yii\web\Controller;
 use yii\web\Response;
 
-class BaseController extends Controller
+abstract class BaseController extends Controller
 {
+
+    /**
+     * 获取请求参数
+     * @param string $key     参数名
+     * @param mixed  $default 参数默认值
+     * @param string $method  请求方法
+     * @return mixed
+     */
+    protected function getParam($key, $default = null, $method = null)
+    {
+        if (empty($key)) {
+            return false;
+        }
+
+        if ($method && is_string($method)) {
+            switch (strtolower($method)) {
+                case 'get':
+                case 'post':
+                    return Yii::$app->getRequest()->$method($key, $default);
+                    break;
+                default:
+                    return false;
+                    break;
+            }
+        }
+
+        $param = Yii::$app->getRequest()->get($key);
+        if (is_null($param)) {
+            $param = Yii::$app->getRequest()->post($key, $default);
+        }
+
+        return $param;
+    }
+
     /**
      * JSON数据响应
      * @param int $code
