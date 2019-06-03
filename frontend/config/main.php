@@ -1,5 +1,5 @@
 <?php
-$params = array_merge(
+$params = \yii\helpers\ArrayHelper::merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
     require __DIR__ . '/params.php',
@@ -41,9 +41,8 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                'deploy.action' => 'deploy/site/index'
-            ],
+            'rules' => [],
+            'suffix' => '.html',
         ],
     ],
     'params' => $params,
