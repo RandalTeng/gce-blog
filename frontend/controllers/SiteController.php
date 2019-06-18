@@ -39,8 +39,8 @@ class SiteController extends CommonController
      */
     public function actionIndex()
     {
+        var_dump($_POST);
         return 'hello visitor.';
-        return $this->render('index');
     }
 
     /**
