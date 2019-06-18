@@ -10,6 +10,12 @@ use yii\web\Response;
  */
 class SiteController extends CommonController
 {
+    public function init()
+    {
+        parent::init();
+        $this->enableCsrfValidation = false;
+    }
+
     /**
      * {@inheritdoc}
      */
