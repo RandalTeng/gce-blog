@@ -39,7 +39,7 @@ class SiteController extends CommonController
      */
     public function actionIndex()
     {
-        var_dump($_POST);
+        var_dump(Yii::$app->getRequest()->post());
         return 'hello visitor.';
     }
 
