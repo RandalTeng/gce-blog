@@ -39,8 +39,10 @@ class SiteController extends CommonController
      */
     public function actionIndex()
     {
-        var_dump(Yii::$app->getRequest()->post());
-        return 'hello visitor.';
+        $post = Yii::$app->getRequest()->post();
+        $get = Yii::$app->getRequest()->get();
+        $server = $_SERVER;
+        return $this->json(200, '请求成功', compact('post', 'get', 'server'));
     }
 
     /**
