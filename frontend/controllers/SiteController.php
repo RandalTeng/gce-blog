@@ -40,7 +40,7 @@ class SiteController extends CommonController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', ['title' => 'Welcome to phpcdr.com']);
     }
 
     /**
