@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
@@ -39,10 +40,7 @@ class SiteController extends CommonController
      */
     public function actionIndex()
     {
-        $post = Yii::$app->getRequest()->post();
-        $get = Yii::$app->getRequest()->get();
-        $server = $_SERVER;
-        return $this->json(200, '请求成功', compact('post', 'get', 'server'));
+        return $this->render('index');
     }
 
     /**
