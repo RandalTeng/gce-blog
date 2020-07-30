@@ -8,7 +8,7 @@
 namespace open\controllers;
 
 use common\controllers\BaseController;
-use common\helpers\Request;
+use common\helpers\Response;
 
 /**
  * Class SiteController
@@ -21,7 +21,7 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        return Request::json(Request::ERROR_FALSE, Request::HTTP_CODE_OK, 'ok');
+        return Response::json(Response::ERROR_FALSE, Response::HTTP_CODE_OK, 'ok');
     }
 
     /**
