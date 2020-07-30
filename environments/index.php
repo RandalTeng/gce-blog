@@ -37,6 +37,8 @@ return [
             'console/runtime',
             'frontend/runtime',
             'frontend/web/assets',
+            'open/runtime',
+            'open/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -56,6 +58,8 @@ return [
             'console/runtime',
             'frontend/runtime',
             'frontend/web/assets',
+            'open/runtime',
+            'open/web/assets',
         ],
         'setExecutable' => [
             'yii',

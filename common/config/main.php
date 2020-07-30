@@ -1,27 +1,47 @@
 <?php
+$dbComponents = require __DIR__ . '/db.php';
+
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'components' => [
-        'db' => [
-            'class' => \yii\db\Connection::class,
-            'dsn' => 'mysql:host=mysql;dbname=yii2advanced',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
+    'components' => \yii\helpers\ArrayHelper::merge([
+        'request' => [
+            'enableCsrfValidation' => false,
+            'parsers' => [
+                'application/json' => \yii\web\JsonParser::class,
+            ]
         ],
-        'redis' => [
-            'class' => \yii\redis\Connection::class,
-            'hostname' => 'redis',
-            'port' => 6379,
-            'password' => null,
-            'database' => 0,
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => false,
+            'enableSession' => false
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'categories' => ['debug'],
+                    'levels' => ['error', 'warning', 'info'],
+                    'logVars' => ['_SERVER', '_POST', '_GET'],
+                    'logFile' => '@runtime/logs/debug.log'
+                ],
+            ],
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+
         'cache' => [
             'class' => \yii\redis\Cache::class,
         ],
-    ],
+    ], $dbComponents)
 ];
