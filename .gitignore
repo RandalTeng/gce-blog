@@ -38,12 +38,9 @@ phpunit.phar
 /.vagrant
 
 # ignore generated files
-/frontend/web/index.php
-/frontend/web/index-test.php
-/frontend/web/robots.txt
-/backend/web/index.php
-/backend/web/index-test.php
-/backend/web/robots.txt
+/*/web/index.php
+/*/web/index-test.php
+/*/web/robots.txt
 
 # demo controller
 DemoController.php
