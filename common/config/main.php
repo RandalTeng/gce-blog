@@ -8,17 +8,6 @@ return [
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => \yii\helpers\ArrayHelper::merge([
-        'request' => [
-            'enableCsrfValidation' => false,
-            'parsers' => [
-                'application/json' => \yii\web\JsonParser::class,
-            ]
-        ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => false,
-            'enableSession' => false
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

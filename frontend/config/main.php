@@ -13,15 +13,16 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => \yii\web\JsonParser::class,
             ]
         ],
         'user' => [
+            'class' => \yii\web\User::class,
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'enableAutoLogin' => false,
+            'enableSession' => false
         ],
         'session' => [
             'name' => 'advanced-frontend',
