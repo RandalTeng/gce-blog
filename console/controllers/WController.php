@@ -9,8 +9,8 @@ namespace console\controllers;
 
 use GuzzleHttp\Client;
 use Yii;
+use yii\console\ExitCode;
 use yii\helpers\FileHelper;
-use yii\log\Logger;
 
 /**
  * Class WController
@@ -34,5 +34,7 @@ class WController extends CommonController
         $listFile = Yii::getAlias('@runtime/') . 'logs/wget/' . date('Ymd/') . 'index.'.date('His').'.json';
         FileHelper::createDirectory(pathinfo($listFile, PATHINFO_DIRNAME));
         file_put_contents($listFile, $list->getBody(), FILE_APPEND | LOCK_EX);
+        $this->stdout('success');
+        return ExitCode::OK;
     }
 }
