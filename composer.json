@@ -1,5 +1,5 @@
 {
-    "name": "gce-blog",
+    "name": "phpcdr.com/gce-blog",
     "description": "Google Cloud Engine to Blog",
     "keywords": ["randal", "yii2", "blog"],
     "homepage": "https://phpcdr.com/",
@@ -28,11 +28,5 @@
         "fxp-asset": {
             "enabled": false
         }
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
+    }
 }
